@@ -1,0 +1,90 @@
+http://localhost:5000/api/Account/Login
+HttpPost
+Request
+{
+ "email": "naziregndz@gmail.com",
+ "password": "1234567"
+}
+
+http://localhost:5000/api/Home
+HttpGet
+
+Response
+[
+    {
+        "id": 1,
+        "productTypeId": "1",
+        "productName": "Karisik Pizza",
+        "price": 25.50,
+        "stock": 10,
+        "description": "Sucuklu Peynirli Pizza"
+    },
+    {
+        "id": 2,
+        "productTypeId": "1",
+        "productName": "Vejeteryan Pizza",
+        "price": 22.50,
+        "stock": 20,
+        "description": "Peynirli Pizza"
+    },
+    {
+        "id": 3,
+        "productTypeId": "2",
+        "productName": "Karisik Dürüm",
+        "price": 25.50,
+        "stock": 30,
+        "description": "Sucuklu Peynirli Dürüm"
+    }
+]
+
+http://localhost:5000/api/order/addtocart
+HttpPost
+
+Request
+{
+ "productId": 1,
+ "email": "naziregndz@gmail.com"
+}
+
+
+
+http://localhost:5000/api/order/getcartdetail
+HttpPost
+
+Request
+{
+ "customerId":1
+}
+
+Response
+[
+    {
+        "id": 7,
+        "status": 1,
+        "productId": 1,
+        "customerId": 1,
+        "quantity": 2,
+        "unitPrice": 25.50,
+        "totalPrice": 51.00,
+        "productName": "Karisik Pizza"
+    },
+    {
+        "id": 8,
+        "status": 1,
+        "productId": 2,
+        "customerId": 1,
+        "quantity": 1,
+        "unitPrice": 22.50,
+        "totalPrice": 22.50,
+        "productName": "Karisik Pizza"
+    }
+]
+
+http://localhost:5000/api/order/CreateOrder
+
+HttpPost
+
+{
+ "customerId":1,
+ "addressId": 1
+}
