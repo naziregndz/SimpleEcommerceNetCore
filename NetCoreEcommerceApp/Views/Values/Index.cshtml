@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Dominos ECommerce Test Demo";
+}
+@model List<Entities.Product>
+@{
+    ViewBag.Title = "test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+
+    @foreach (var product in Model)
+    {
+        <div class="col-md-3">
+            <div class="card">
+                <img class="card-img-top"
+                     @*src="~/Assets/img/@(product.Image)" alt="@(product.ProductName)" />*@
+                <div class="card-body">
+                    <h5 class="card-title">@(product.ProductName)</h5>
+                    <p class="card-text">@(product.Description)</p>
+                    <p class="card-text badge">@(product.Price) ₺</p>
+                    <button type="button"
+                            ng-click="addToBasket('@(product.Id)')"
+                            class="btn btn-primary pull-right">
+                        <span class="fa fa-shopping-cart"></span> SEPETE EKLE
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

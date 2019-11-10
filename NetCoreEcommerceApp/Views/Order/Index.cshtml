@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Dominos ECommerce Test Demo";
+}
+@model List<Entities.Cart>
+@{
+    ViewBag.Title = "test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"> </th>
+                            <th scope="col">Ürün</th>
+                            <th scope="col"></th>
+                            <th scope="col" class="text-center">Adet</th>
+                            <th scope="col" class="text-right">Fiyat</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            decimal totalPrice = 0;
+                            foreach (var product in Model)
+                            {
+                        <tr>
+                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                            <td></td>
+                            <td>@(product.ProductName)</td>
+                            <td><input class="form-control" type="text" value=@(product.Quantity)></td>
+                            <td class="text-right">@(product.UnitPrice)</td>
+                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                        </tr>
+                                totalPrice += product.UnitPrice;
+                            }
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Ara Toplam</td>
+                                <td class="text-right">@totalPrice</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>İndirim</td>
+                                <td class="text-right">0</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>Toplam</strong></td>
+                                <td class="text-right"><strong>@totalPrice</strong></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col mb-2">
+            <div class="row">
+                <div class="col-sm-12 text-right">
+                    <button class="btn btn-lg btn-block btn-success text-uppercase">Sipariş Ver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
